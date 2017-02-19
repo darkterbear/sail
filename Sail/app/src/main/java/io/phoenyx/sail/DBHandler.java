@@ -84,7 +84,9 @@ public class DBHandler extends SQLiteOpenHelper {
             + TIMELINE_EVENT_DESCRIPTION_COLUMN + " TEXT,"
             + TIMELINE_EVENT_DATE_COLUMN + " TEXT)";
 
-    public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+
+
+    public DBHandler(Context context) {
         super(context, DATABSE_NAME, null, DATABASE_VERSION);
     }
 
@@ -410,4 +412,3 @@ public class DBHandler extends SQLiteOpenHelper {
         }
     }
 }
-

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/promiseCards"
+    android:backgroundTint="@color/colorPrimaryDark"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/promiseTextGroup"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/promiseTitleTextView"
+            android:text="Test Title"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/promiseDescriptionTextView"
+            android:text="Lorem ipsum text lmao"
+            android:paddingLeft="16dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/colorAccent"
+            android:paddingRight="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/promiseDateTextView"
+            android:text="Due March 20th 2017"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/promisePersonTextView"
+            android:paddingLeft="16dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/colorAccent"
+            tools:text="Andrew Liu" />
+
+        <LinearLayout
+            android:id="@+id/promiseButtonsGroup"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:paddingRight="16dp"
+            android:backgroundTint="@color/colorAccent"
+            android:background="@color/colorAccent">
+
+            <ImageButton
+                android:id="@+id/promiseDoneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/check"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp" />
+
+            <ImageButton
+                android:id="@+id/promiseStarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/star_outline"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
