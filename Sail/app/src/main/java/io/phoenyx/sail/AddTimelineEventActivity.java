@@ -51,7 +51,6 @@ public class AddTimelineEventActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(AddTimelineEventActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
-                        selectedMonth++;
                         timelineEventDateTextView.setText(months[selectedMonth] + " " + selectedDay + " " + selectedYear);
                     }
                 }, year, month, day);

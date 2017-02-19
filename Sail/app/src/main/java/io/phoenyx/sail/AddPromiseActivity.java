@@ -67,7 +67,6 @@ public class AddPromiseActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(AddPromiseActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
-                        selectedMonth++;
                         promiseDateTextView.setText(months[selectedMonth] + " " + selectedDay + " " + selectedYear);
                     }
                 }, year, month, day);

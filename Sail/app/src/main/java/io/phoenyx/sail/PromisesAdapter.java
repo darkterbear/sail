@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -59,6 +60,16 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
                 }
                 dbHandler.updatePromise(promise);
 
+            }
+        });
+        holder.doneImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String[] months = new String[]{"Jan.","Feb.","Mar.","Apr.","May","Jun.","Jul.","Aug.","Sep.","Oct.","Nov.","Dec."};
+                String date = months[Calendar.getInstance().get(Calendar.MONTH)] + " " + Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + " " + Calendar.getInstance().get(Calendar.YEAR);
+                Achievement achievement = new Achievement(promise.getTitle(), promise.getDescription(), date, promise.isStarred());
+                dbHandler.createAchievement(achievement);
+                dbHandler.deletePromise(promise.getId());
             }
         });
     }

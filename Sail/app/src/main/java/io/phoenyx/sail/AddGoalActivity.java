@@ -66,7 +66,6 @@ public class AddGoalActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(AddGoalActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
-                        selectedMonth++;
                         goalDateTextView.setText(months[selectedMonth] + " " + selectedDay + " " + selectedYear);
                     }
                 }, year, month, day);

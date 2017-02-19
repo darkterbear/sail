@@ -55,7 +55,6 @@ public class EditAchievementActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(EditAchievementActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
-                        selectedMonth++;
                         achievementDateTextView.setText(months[selectedMonth] + " " + selectedDay + " " + selectedYear);
                     }
                 }, year, month, day);
