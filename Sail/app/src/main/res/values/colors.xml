@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#6c9de5</color>
     <color name="colorPrimaryDark">#4d6fa1</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#6c9de5</color>
     <color name="menu_item_color">#4f4f4f</color>
+    <color name="gray_highlight_color">#707070</color>
 </resources>

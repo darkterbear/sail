@@ -17,7 +17,8 @@
         android:id="@+id/addAchievementFAB"
         app:backgroundTint="@color/colorPrimary"
         app:srcCompat="@drawable/plus"
-        android:tint="@color/colorAccent"
-        android:layout_gravity="bottom|right" />
+        android:tint="@android:color/white"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp" />
 
 </FrameLayout>

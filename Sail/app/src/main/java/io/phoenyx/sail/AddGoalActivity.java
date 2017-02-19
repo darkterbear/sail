@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +32,8 @@ public class AddGoalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_goal);
 
+        getSupportActionBar().setTitle("New Goal");
+
         dbHandler = new DBHandler(this);
 
         year = Calendar.getInstance().get(Calendar.YEAR);
@@ -42,6 +45,17 @@ public class AddGoalActivity extends AppCompatActivity {
         goalDescriptionEditText = (EditText) findViewById(R.id.goalDescriptionEditText);
         goalDateTextView = (TextView) findViewById(R.id.goalDateTextView);
         goalLongTermCheckBox = (CheckBox) findViewById(R.id.goalLongTermCheckBox);
+
+        goalLongTermCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    goalDateTextView.setText("Long term");
+                } else {
+                    goalDateTextView.setText(months[month] + " " + day + " " + year);
+                }
+            }
+        });
 
         goalDateTextView.setText(months[month] + " " + day + " " + year);
         goalDateTextView.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +70,10 @@ public class AddGoalActivity extends AppCompatActivity {
                         goalDateTextView.setText(months[selectedMonth] + " " + selectedDay + " " + selectedYear);
                     }
                 };
+
+                DatePickerDialog dialog = new DatePickerDialog(AddGoalActivity.this, datePickerListener, year, month, day);
+                dialog.getDatePicker().setMinDate(timeSince1970);
+                dialog.show();
             }
         });
     }

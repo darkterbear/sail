@@ -19,7 +19,9 @@
         android:inputType="textCapSentences|textAutoCorrect"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/gray_highlight_color" />
 
     <TextView
         android:text="Mar. 20 2017"
@@ -46,6 +48,8 @@
         android:layout_alignParentBottom="true"
         android:hint="Description"
         android:gravity="top"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:backgroundTint="@android:color/transparent"
+        android:textCursorDrawable="@drawable/color_cursor" />
 
 </RelativeLayout>

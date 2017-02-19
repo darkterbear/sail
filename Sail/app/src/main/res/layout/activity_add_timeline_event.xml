@@ -13,27 +13,15 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:layout_below="@+id/timelineEventDateTextView"
-        android:layout_alignParentStart="true"
-        android:id="@+id/timelineEventDescriptionEditText"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:hint="Description"
-        android:gravity="top"
-        android:paddingLeft="8dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/timelineEventTitleEditText"
         android:hint="Event Title"
         android:inputType="textCapSentences|textAutoCorrect"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/gray_highlight_color" />
 
     <TextView
         android:text="Mar. 20 2017"
@@ -47,5 +35,21 @@
         android:layout_marginLeft="8dp"
         android:layout_below="@+id/timelineEventTitleEditText"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/timelineEventDescriptionEditText"
+        android:hint="Description"
+        android:gravity="top"
+        android:paddingLeft="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/timelineEventDateTextView"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@android:color/transparent"
+        android:textCursorDrawable="@drawable/color_cursor" />
 
 </RelativeLayout>

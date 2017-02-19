@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     View navHeader;
     ActionBarDrawerToggle toggle;
 
+    DBHandler dbHandler;
+
     public static int navItemIndex = 0;
     private static final String TAG_GOALS = "goals";
     private static final String TAG_ACHIEVEMENTS = "achievements";
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity
         navHeader = navigationView.getHeaderView(0);
         handler = new Handler();
         navigationView.setNavigationItemSelectedListener(this);
+
+        dbHandler = new DBHandler(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);

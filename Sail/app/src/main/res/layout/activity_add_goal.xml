@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_add_goal"
     android:layout_width="match_parent"
@@ -19,7 +20,9 @@
         android:inputType="textCapSentences|textAutoCorrect"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/gray_highlight_color" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -51,7 +54,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/goalLongTermCheckBox"
             android:layout_gravity="right"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:buttonTint="@color/gray_highlight_color" />
     </LinearLayout>
 
     <EditText
@@ -66,6 +70,8 @@
         android:layout_alignParentBottom="true"
         android:hint="Description"
         android:gravity="top"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:backgroundTint="@android:color/transparent"
+        android:textCursorDrawable="@drawable/color_cursor" />
 
 </RelativeLayout>
