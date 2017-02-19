@@ -13,14 +13,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Calendar;
-
-public class AddAchievementActivity extends AppCompatActivity {
+public class EditAchievementActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
     EditText achievementTitleEditText, achievementDescriptionEditText;
     TextView achievementDateTextView;
     String[] months;
+    int achievementID;
+    Achievement achievement;
 
     int year, month, day;
 
@@ -29,26 +29,30 @@ public class AddAchievementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_achievement);
 
-        getSupportActionBar().setTitle("New Achievement");
+        Bundle extras = getIntent().getExtras();
+        achievementID = extras.getInt("achievement_id");
+
+        getSupportActionBar().setTitle("Edit Achievement");
 
         dbHandler = new DBHandler(this);
+        achievement = dbHandler.getAchievement(achievementID);
 
-        year = Calendar.getInstance().get(Calendar.YEAR);
-        month = Calendar.getInstance().get(Calendar.MONTH);
-        day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         months = new String[]{"Jan.","Feb.","Mar.","Apr.","May","Jun.","Jul.","Aug.","Sep.","Oct.","Nov.","Dec."};
 
         achievementTitleEditText = (EditText) findViewById(R.id.achievementTitleEditText);
         achievementDescriptionEditText = (EditText) findViewById(R.id.achievementDescriptionEditText);
         achievementDateTextView = (TextView) findViewById(R.id.achievementDateTextView);
 
-        achievementDateTextView.setText(months[month] + " " + day + " " + year);
+        achievementTitleEditText.setText(achievement.getTitle());
+        achievementDescriptionEditText.setText(achievement.getDescription());
+        achievementDateTextView.setText(achievement.getDate());
+
         achievementDateTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 long timeSince1970 = System.currentTimeMillis();
 
-                DatePickerDialog dialog = new DatePickerDialog(AddAchievementActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dialog = new DatePickerDialog(EditAchievementActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
                         selectedMonth++;
@@ -57,7 +61,6 @@ public class AddAchievementActivity extends AppCompatActivity {
                 }, year, month, day);
 
                 dialog.getDatePicker().setMaxDate(timeSince1970);
-                dialog.setTitle("");
                 dialog.show();
             }
         });
@@ -66,7 +69,7 @@ public class AddAchievementActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_create, menu);
+        inflater.inflate(R.menu.menu_edit, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -74,9 +77,8 @@ public class AddAchievementActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.done:
-                Achievement achievement = new Achievement(achievementTitleEditText.getText().toString(), achievementDescriptionEditText.getText().toString(), achievementDateTextView.getText().toString(), false);
-                dbHandler.createAchievement(achievement);
+            case R.id.delete:
+                dbHandler.deleteAchievement(achievementID);
                 finish();
                 break;
             default:
@@ -85,5 +87,14 @@ public class AddAchievementActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Achievement newAchievement = new Achievement(achievementID, achievementTitleEditText.getText().toString(), achievementDescriptionEditText.getText().toString(), achievementDateTextView.getText().toString(), false);
+        dbHandler.updateAchievement(newAchievement);
+        finish();
     }
 }

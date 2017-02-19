@@ -1,6 +1,7 @@
 package io.phoenyx.sail;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -127,6 +128,11 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
         fragmentTransaction.replace(R.id.frame, fragment).commitAllowingStateLoss();
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

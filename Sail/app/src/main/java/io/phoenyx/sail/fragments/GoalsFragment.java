@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import io.phoenyx.sail.AddGoalActivity;
 import io.phoenyx.sail.DBHandler;
@@ -52,10 +53,25 @@ public class GoalsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent addGoalIntent = new Intent(getActivity().getApplicationContext(), AddGoalActivity.class);
-                startActivity(addGoalIntent);
+                startActivityForResult(addGoalIntent, 1337);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        if (resultCode == 1337) {
+            Toast.makeText(getActivity(), "RESULT NOTICED", Toast.LENGTH_LONG).show();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+    public void refreshGoals() {
+        recyclerView.setAdapter(new GoalsAdapter(dbHandler.getAllGoals()));
     }
 }

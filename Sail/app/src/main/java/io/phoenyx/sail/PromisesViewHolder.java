@@ -9,7 +9,7 @@ import android.widget.TextView;
  * Created by terrance on 2/18/17.
  */
 
-public class PromisesViewHolder extends RecyclerView.ViewHolder {
+public class PromisesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     protected TextView titleTextView;
     protected TextView descriptionTextView;
     protected TextView dateTextView;
@@ -25,5 +25,12 @@ public class PromisesViewHolder extends RecyclerView.ViewHolder {
         personTextView = (TextView) itemView.findViewById(R.id.promisePersonTextView);
         starImageButton = (ImageButton) itemView.findViewById(R.id.promiseStarButton);
         doneImageButton = (ImageButton) itemView.findViewById(R.id.promiseDoneButton);
+
+        itemView.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

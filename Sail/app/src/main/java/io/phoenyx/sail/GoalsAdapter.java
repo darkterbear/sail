@@ -40,6 +40,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
                 dbHandler.updateGoal(goal);
             }
         });
+        holder.goalID = goal.getId();
         if (goal.isStarred()) {
             holder.starImageButton.setBackgroundResource(R.drawable.star);
         } else {
@@ -59,6 +60,8 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
 
             }
         });
+
+
     }
 
     @Override
