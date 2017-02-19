@@ -6,22 +6,24 @@ package io.phoenyx.sail;
 
 public class Promise {
     int id;
-    String title, description, duration;
+    String title, description, date, person;
     boolean starred, completed;
 
-    public Promise(int id, String title, String description, String duration, boolean starred, boolean completed) {
+    public Promise(int id, String title, String description, String date, String person, boolean starred, boolean completed) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.duration = duration;
+        this.date = date;
+        this.person = person;
         this.starred = starred;
         this.completed = completed;
     }
 
-    public Promise(String title, String description, String duration, boolean starred, boolean completed) {
+    public Promise(String title, String description, String date, String person, boolean starred, boolean completed) {
         this.title = title;
         this.description = description;
-        this.duration = duration;
+        this.date = date;
+        this.person = person;
         this.starred = starred;
         this.completed = completed;
     }
@@ -38,6 +40,14 @@ public class Promise {
         return title;
     }
 
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -50,12 +60,12 @@ public class Promise {
         this.description = description;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getDate() {
+        return date;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public boolean isStarred() {

@@ -12,7 +12,8 @@ import android.widget.TextView;
 public class PromisesViewHolder extends RecyclerView.ViewHolder {
     protected TextView titleTextView;
     protected TextView descriptionTextView;
-    protected TextView durationTextView;
+    protected TextView dateTextView;
+    protected TextView personTextView;
     protected ImageButton starImageButton;
     protected ImageButton doneImageButton;
 
@@ -20,7 +21,8 @@ public class PromisesViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         titleTextView = (TextView) itemView.findViewById(R.id.promiseTitleTextView);
         descriptionTextView = (TextView) itemView.findViewById(R.id.promiseDescriptionTextView);
-        durationTextView = (TextView) itemView.findViewById(R.id.promiseDateTextView);
+        dateTextView = (TextView) itemView.findViewById(R.id.goalDateTextView);
+        personTextView = (TextView) itemView.findViewById(R.id.promisePersonTextView);
         starImageButton = (ImageButton) itemView.findViewById(R.id.promiseStarButton);
         doneImageButton = (ImageButton) itemView.findViewById(R.id.promiseDoneButton);
     }

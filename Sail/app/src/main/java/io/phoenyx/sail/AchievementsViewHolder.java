@@ -19,7 +19,7 @@ public class AchievementsViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         titleTextView = (TextView) itemView.findViewById(R.id.achievementTitleTextView);
         descriptionTextView = (TextView) itemView.findViewById(R.id.achievementDescriptionTextView);
-        dateTextView = (TextView) itemView.findViewById(R.id.achievementDateTextView);
+        dateTextView = (TextView) itemView.findViewById(R.id.goalDateTextView);
         starImageButton = (ImageButton) itemView.findViewById(R.id.achievementStarButton);
     }
 }

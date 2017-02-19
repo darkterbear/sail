@@ -40,6 +40,13 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
                 dbHandler.updateGoal(goal);
             }
         });
+        if (goal.isStarred()) {
+            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
+            goal.setStarred(false);
+        } else {
+            holder.starImageButton.setBackgroundResource(R.drawable.star);
+            goal.setStarred(true);
+        }
         holder.starImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

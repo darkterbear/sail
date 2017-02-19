@@ -44,7 +44,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String PROMISES_ID_COLUMN = "id";
     private static final String PROMISES_TITLE_COLUMN = "title";
     private static final String PROMISES_DESCRIPTION_COLUMN = "description";
-    private static final String PROMISES_DURATION_COLUMN = "duration";
+    private static final String PROMISES_PERSON_COLUMN = "person";
+    private static final String PROMISES_DATE_COLUMN = "date";
     private static final String PROMISES_STARRED_COLUMN = "starred";
     private static final String PROMISES_COMPLETED_COLUMN = "completed";
 
@@ -74,7 +75,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String CREATE_PROMISES_TABLE = "CREATE TABLE "
             + TABLE_PROMISES + "(" + PROMISES_ID_COLUMN + " INTEGER PRIMARY KEY," + PROMISES_TITLE_COLUMN + " TEXT,"
             + PROMISES_DESCRIPTION_COLUMN + " TEXT,"
-            + PROMISES_DURATION_COLUMN + " TEXT,"
+            + PROMISES_DATE_COLUMN + " TEXT,"
+            + PROMISES_PERSON_COLUMN + " TEXT,"
             + PROMISES_STARRED_COLUMN + " INTEGER,"
             + PROMISES_COMPLETED_COLUMN + " INTEGER)";
 
@@ -145,12 +147,13 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(PROMISES_TITLE_COLUMN, promise.getTitle());
         values.put(PROMISES_DESCRIPTION_COLUMN, promise.getDescription());
-        values.put(PROMISES_DURATION_COLUMN, promise.getDuration());
+        values.put(PROMISES_DATE_COLUMN, promise.getDate());
+        values.put(PROMISES_PERSON_COLUMN, promise.getPerson());
         values.put(PROMISES_STARRED_COLUMN, (promise.isStarred()) ? 1 : 0);
         values.put(PROMISES_COMPLETED_COLUMN, (promise.isCompleted()) ? 1 : 0);
 
-        long goalID = db.insert(TABLE_GOALS, null, values);
-        return safeLongToInt(goalID);
+        long promiseID = db.insert(TABLE_PROMISES, null, values);
+        return safeLongToInt(promiseID);
     }
 
     public int createTimelineEvent(TimelineEvent timelineEvent) {
@@ -161,8 +164,8 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(TIMELINE_EVENT_DESCRIPTION_COLUMN, timelineEvent.getDescription());
         values.put(TIMELINE_EVENT_DATE_COLUMN, timelineEvent.getDate());
 
-        long goalID = db.insert(TABLE_GOALS, null, values);
-        return safeLongToInt(goalID);
+        long timelineEventID = db.insert(TABLE_TIMELINE, null, values);
+        return safeLongToInt(timelineEventID);
     }
 
     //FETCHERS
@@ -218,7 +221,8 @@ public class DBHandler extends SQLiteOpenHelper {
         Promise promise = new Promise(cursor.getInt(cursor.getColumnIndex(PROMISES_ID_COLUMN)),
                 cursor.getString(cursor.getColumnIndex(PROMISES_TITLE_COLUMN)),
                 cursor.getString(cursor.getColumnIndex(PROMISES_DESCRIPTION_COLUMN)),
-                cursor.getString(cursor.getColumnIndex(PROMISES_DURATION_COLUMN)),
+                cursor.getString(cursor.getColumnIndex(PROMISES_DATE_COLUMN)),
+                cursor.getString(cursor.getColumnIndex(PROMISES_PERSON_COLUMN)),
                 (cursor.getInt(cursor.getColumnIndex(PROMISES_STARRED_COLUMN)) != 0),
                 (cursor.getInt(cursor.getColumnIndex(PROMISES_COMPLETED_COLUMN)) != 0));
 
@@ -302,7 +306,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 Promise promise = new Promise(cursor.getInt(cursor.getColumnIndex(PROMISES_ID_COLUMN)),
                         cursor.getString(cursor.getColumnIndex(PROMISES_TITLE_COLUMN)),
                         cursor.getString(cursor.getColumnIndex(PROMISES_DESCRIPTION_COLUMN)),
-                        cursor.getString(cursor.getColumnIndex(PROMISES_DURATION_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(PROMISES_DATE_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(PROMISES_PERSON_COLUMN)),
                         (cursor.getInt(cursor.getColumnIndex(PROMISES_STARRED_COLUMN)) != 0),
                         (cursor.getInt(cursor.getColumnIndex(PROMISES_COMPLETED_COLUMN)) != 0));
                 promises.add(promise);
@@ -365,7 +370,8 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(PROMISES_TITLE_COLUMN, promise.getTitle());
         values.put(PROMISES_DESCRIPTION_COLUMN, promise.getDescription());
-        values.put(PROMISES_DURATION_COLUMN, promise.getDuration());
+        values.put(PROMISES_DATE_COLUMN, promise.getDate());
+        values.put(PROMISES_PERSON_COLUMN, promise.getPerson());
         values.put(PROMISES_STARRED_COLUMN, (promise.isStarred()) ? 1 : 0);
         values.put(PROMISES_COMPLETED_COLUMN, (promise.isCompleted()) ? 1 : 0);
 

@@ -32,7 +32,8 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
         final Promise promise = promises.get(position);
         holder.titleTextView.setText(promise.getTitle());
         holder.descriptionTextView.setText(promise.getDescription());
-        holder.durationTextView.setText(promise.getDuration());
+        holder.dateTextView.setText(promise.getDate());
+        holder.personTextView.setText(promise.getPerson());
         holder.doneImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +41,13 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
                 dbHandler.updatePromise(promise);
             }
         });
+        if (promise.isStarred()) {
+            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
+            promise.setStarred(false);
+        } else {
+            holder.starImageButton.setBackgroundResource(R.drawable.star);
+            promise.setStarred(true);
+        }
         holder.starImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
