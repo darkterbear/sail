@@ -1,5 +1,6 @@
 package io.phoenyx.sail;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,6 +17,7 @@ public class PromisesViewHolder extends RecyclerView.ViewHolder implements View.
     protected TextView personTextView;
     protected ImageButton starImageButton;
     protected ImageButton doneImageButton;
+    int promiseID;
 
     public PromisesViewHolder(View itemView) {
         super(itemView);
@@ -31,6 +33,8 @@ public class PromisesViewHolder extends RecyclerView.ViewHolder implements View.
 
     @Override
     public void onClick(View view) {
-
+        Intent editPromise = new Intent(view.getContext().getApplicationContext(), EditPromiseActivity.class);
+        editPromise.putExtra("promise_id", promiseID);
+        view.getContext().startActivity(editPromise);
     }
 }

@@ -1,5 +1,6 @@
 package io.phoenyx.sail;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -14,6 +15,7 @@ public class AchievementsViewHolder extends RecyclerView.ViewHolder implements V
     protected TextView descriptionTextView;
     protected TextView dateTextView;
     protected ImageButton starImageButton;
+    int achievementID;
 
     public AchievementsViewHolder(View itemView) {
         super(itemView);
@@ -27,6 +29,8 @@ public class AchievementsViewHolder extends RecyclerView.ViewHolder implements V
 
     @Override
     public void onClick(View view) {
-
+        Intent editAchievement = new Intent(view.getContext().getApplicationContext(), EditAchievementActivity.class);
+        editAchievement.putExtra("achievement_id", achievementID);
+        view.getContext().startActivity(editAchievement);
     }
 }

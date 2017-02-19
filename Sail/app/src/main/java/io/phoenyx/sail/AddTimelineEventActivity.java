@@ -29,7 +29,7 @@ public class AddTimelineEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_timeline_event);
 
-        getSupportActionBar().setTitle("New Achievement");
+        getSupportActionBar().setTitle("New Event");
 
         dbHandler = new DBHandler(this);
 
@@ -56,7 +56,7 @@ public class AddTimelineEventActivity extends AppCompatActivity {
                     }
                 }, year, month, day);
 
-                dialog.getDatePicker().setMinDate(timeSince1970);
+                dialog.getDatePicker().setMaxDate(timeSince1970);
                 dialog.show();
             }
         });

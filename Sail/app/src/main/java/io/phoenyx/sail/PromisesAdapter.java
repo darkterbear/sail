@@ -34,6 +34,7 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
         holder.descriptionTextView.setText(promise.getDescription());
         holder.dateTextView.setText(promise.getDate());
         holder.personTextView.setText(promise.getPerson());
+        holder.promiseID = promise.getId();
         holder.doneImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

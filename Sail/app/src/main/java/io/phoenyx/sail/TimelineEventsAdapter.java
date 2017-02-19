@@ -33,6 +33,7 @@ public class TimelineEventsAdapter extends RecyclerView.Adapter<TimelineEventsVi
         holder.titleTextView.setText(timelineEvent.getTitle());
         holder.descriptionTextView.setText(timelineEvent.getDescription());
         holder.dateTextView.setText(timelineEvent.getDate());
+        holder.timelineEventID = timelineEvent.getId();
     }
 
     @Override
