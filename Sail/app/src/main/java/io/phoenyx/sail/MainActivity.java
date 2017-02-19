@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void loadNavHeader() {
+        /*
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.user_data_sp_key), Context.MODE_PRIVATE);
         int numGoals = dbHandler.getAllGoals().size();
         int numAchievements = dbHandler.getAllAchievements().size();
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity
         numAchievementsTextView.setText(numAchievementsString);
         numPromisesTextView.setText(numPromisesString);
         numTimelinesTextView.setText(numTimelinesString);
+        */
     }
 
     private void navigate(int navItemIndex) {

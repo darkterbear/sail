@@ -12,7 +12,6 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
-        android:text="5 Goals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/numGoalsTextView"
@@ -21,33 +20,28 @@
         android:layout_marginTop="6dp" />
 
     <TextView
-        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/numAchievementsTextView"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp"
-        android:layout_marginTop="6dp"
-        tools:text="3 Achievements" />
+        android:layout_marginTop="6dp" />
 
     <TextView
-        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/numPromisesTextView"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp"
-        android:layout_marginTop="6dp"
-        tools:text="2 Promises" />
+        android:layout_marginTop="6dp" />
 
     <TextView
         android:id="@+id/numTimelineEventsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com"
+        android:text="Welcome to Sail!"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="16sp"
-        android:layout_marginTop="6dp"
-        tools:text="8 Timeline Events" />
+        android:textSize="20sp"
+        android:layout_marginTop="6dp" />
 
 </LinearLayout>
