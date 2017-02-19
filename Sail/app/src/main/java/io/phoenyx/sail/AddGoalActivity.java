@@ -63,15 +63,14 @@ public class AddGoalActivity extends AppCompatActivity {
             public void onClick(View view) {
                 long timeSince1970 = System.currentTimeMillis();
 
-                DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dialog = new DatePickerDialog(AddGoalActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
                         selectedMonth++;
                         goalDateTextView.setText(months[selectedMonth] + " " + selectedDay + " " + selectedYear);
                     }
-                };
+                }, year, month, day);
 
-                DatePickerDialog dialog = new DatePickerDialog(AddGoalActivity.this, datePickerListener, year, month, day);
                 dialog.getDatePicker().setMinDate(timeSince1970);
                 dialog.show();
             }
