@@ -1,5 +1,6 @@
 package io.phoenyx.sail;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -28,6 +29,6 @@ public class TimelineEventsViewHolder extends RecyclerView.ViewHolder implements
     public void onClick(View view) {
         Intent editTimelineEvent = new Intent(view.getContext().getApplicationContext(), EditTimelineEventActivity.class);
         editTimelineEvent.putExtra("timeline_event_id", timelineEventID);
-        view.getContext().startActivity(editTimelineEvent);
+        ((Activity) view.getContext()).startActivityForResult(editTimelineEvent, 1337);
     }
 }

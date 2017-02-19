@@ -1,5 +1,6 @@
 package io.phoenyx.sail;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -35,6 +36,7 @@ public class PromisesViewHolder extends RecyclerView.ViewHolder implements View.
     public void onClick(View view) {
         Intent editPromise = new Intent(view.getContext().getApplicationContext(), EditPromiseActivity.class);
         editPromise.putExtra("promise_id", promiseID);
-        view.getContext().startActivity(editPromise);
+        ((Activity) view.getContext()).startActivityForResult(editPromise, 1337);
+
     }
 }

@@ -51,10 +51,21 @@ public class AchievementsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent addAchievementIntent = new Intent(getActivity().getApplicationContext(), AddAchievementActivity.class);
-                startActivity(addAchievementIntent);
+                startActivityForResult(addAchievementIntent, 1337);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        if (resultCode == 1337 || requestCode == 1337) {
+            recyclerView.setAdapter(new AchievementsAdapter(dbHandler.getAllAchievements()));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

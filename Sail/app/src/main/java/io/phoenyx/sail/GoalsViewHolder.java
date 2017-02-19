@@ -1,5 +1,6 @@
 package io.phoenyx.sail;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -35,6 +36,8 @@ public class GoalsViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public void onClick(View view) {
         Intent editGoal = new Intent(view.getContext().getApplicationContext(), EditGoalActivity.class);
         editGoal.putExtra("goal_id", goalID);
-        view.getContext().startActivity(editGoal);
+        ((Activity) view.getContext()).startActivityForResult(editGoal, 1337);
     }
+
+
 }

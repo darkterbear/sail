@@ -17,6 +17,10 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
     private List<Goal> goals;
     private DBHandler dbHandler;
 
+    public interface OnClickListener {
+        void onClick();
+    }
+
     public GoalsAdapter(List<Goal> goals) {
         this.goals = goals;
     }

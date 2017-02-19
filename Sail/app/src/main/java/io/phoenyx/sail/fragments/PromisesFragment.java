@@ -51,10 +51,21 @@ public class PromisesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent addPromiseIntent = new Intent(getActivity().getApplicationContext(), AddPromiseActivity.class);
-                startActivity(addPromiseIntent);
+                startActivityForResult(addPromiseIntent, 1337);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        if (resultCode == 1337 || requestCode == 1337) {
+            recyclerView.setAdapter(new PromisesAdapter(dbHandler.getAllPromises()));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

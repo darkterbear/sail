@@ -51,10 +51,21 @@ public class TimelineFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent addTimelineEventIntent = new Intent(getActivity().getApplicationContext(), AddTimelineEventActivity.class);
-                startActivity(addTimelineEventIntent);
+                startActivityForResult(addTimelineEventIntent, 1337);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        if (resultCode == 1337 || requestCode == 1337) {
+            recyclerView.setAdapter(new TimelineEventsAdapter(dbHandler.getAllTimelineEvents()));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

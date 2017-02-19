@@ -1,5 +1,6 @@
 package io.phoenyx.sail;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -31,6 +32,6 @@ public class AchievementsViewHolder extends RecyclerView.ViewHolder implements V
     public void onClick(View view) {
         Intent editAchievement = new Intent(view.getContext().getApplicationContext(), EditAchievementActivity.class);
         editAchievement.putExtra("achievement_id", achievementID);
-        view.getContext().startActivity(editAchievement);
+        ((Activity) view.getContext()).startActivityForResult(editAchievement, 1337);
     }
 }
