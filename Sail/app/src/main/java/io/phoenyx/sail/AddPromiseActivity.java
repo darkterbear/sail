@@ -72,6 +72,7 @@ public class AddPromiseActivity extends AppCompatActivity {
                 }, year, month, day);
 
                 dialog.getDatePicker().setMinDate(timeSince1970);
+                dialog.setTitle("");
                 dialog.show();
             }
         });

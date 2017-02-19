@@ -15,6 +15,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class EditGoalActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
@@ -73,6 +75,10 @@ public class EditGoalActivity extends AppCompatActivity {
                 }, year, month, day);
 
                 dialog.getDatePicker().setMinDate(timeSince1970);
+
+                String[] dateParams = goal.getDate().split(" ");
+                dialog.updateDate(Integer.parseInt(dateParams[2]), Arrays.asList(months).indexOf(dateParams[0]), Integer.parseInt(dateParams[1]));
+                dialog.setTitle("");
                 dialog.show();
             }
         });

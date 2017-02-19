@@ -13,6 +13,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class EditAchievementActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
@@ -60,6 +62,9 @@ public class EditAchievementActivity extends AppCompatActivity {
                 }, year, month, day);
 
                 dialog.getDatePicker().setMaxDate(timeSince1970);
+                String[] dateParams = achievement.getDate().split(" ");
+                dialog.updateDate(Integer.parseInt(dateParams[2]), Arrays.asList(months).indexOf(dateParams[0]), Integer.parseInt(dateParams[1]));
+                dialog.setTitle("");
                 dialog.show();
             }
         });

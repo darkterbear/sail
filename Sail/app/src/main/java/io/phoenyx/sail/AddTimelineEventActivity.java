@@ -56,6 +56,7 @@ public class AddTimelineEventActivity extends AppCompatActivity {
                 }, year, month, day);
 
                 dialog.getDatePicker().setMaxDate(timeSince1970);
+                dialog.setTitle("");
                 dialog.show();
             }
         });
