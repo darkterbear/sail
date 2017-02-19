@@ -34,11 +34,9 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsViewHo
         holder.descriptionTextView.setText(achievement.getDescription());
         holder.dateTextView.setText(achievement.getDate());
         if (achievement.isStarred()) {
-            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
-            achievement.setStarred(false);
-        } else {
             holder.starImageButton.setBackgroundResource(R.drawable.star);
-            achievement.setStarred(true);
+        } else {
+            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
         }
         holder.starImageButton.setOnClickListener(new View.OnClickListener() {
             @Override

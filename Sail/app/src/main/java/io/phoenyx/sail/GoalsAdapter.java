@@ -41,11 +41,9 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
             }
         });
         if (goal.isStarred()) {
-            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
-            goal.setStarred(false);
-        } else {
             holder.starImageButton.setBackgroundResource(R.drawable.star);
-            goal.setStarred(true);
+        } else {
+            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
         }
         holder.starImageButton.setOnClickListener(new View.OnClickListener() {
             @Override

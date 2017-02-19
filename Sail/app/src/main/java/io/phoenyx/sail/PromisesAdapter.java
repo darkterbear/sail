@@ -42,11 +42,9 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
             }
         });
         if (promise.isStarred()) {
-            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
-            promise.setStarred(false);
-        } else {
             holder.starImageButton.setBackgroundResource(R.drawable.star);
-            promise.setStarred(true);
+        } else {
+            holder.starImageButton.setBackgroundResource(R.drawable.star_outline);
         }
         holder.starImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
