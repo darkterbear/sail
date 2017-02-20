@@ -84,6 +84,7 @@
         android:textCursorDrawable="@drawable/color_cursor"
         android:backgroundTint="@color/gray_highlight_color"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
