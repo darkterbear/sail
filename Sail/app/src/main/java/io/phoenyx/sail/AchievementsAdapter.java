@@ -7,10 +7,6 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsViewHolder> {
 
     private List<Achievement> achievements;
@@ -30,7 +26,25 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsViewHo
     @Override
     public void onBindViewHolder(final AchievementsViewHolder holder, int position) {
         final Achievement achievement = achievements.get(position);
-        holder.titleTextView.setText(achievement.getTitle());
+
+        String title = achievement.getTitle();
+        String description = achievement.getDescription();
+
+        if (title.length() > 40) {
+            title = title.substring(0, 37) + "...";
+        }
+        if (description.length() > 90) {
+            description = description.substring(0, 87) + "...";
+        }
+
+        holder.titleTextView.setText(title);
+
+        if (description.equals("") || description.isEmpty()) {
+            holder.descriptionTextView.setVisibility(View.GONE);
+        } else {
+            holder.descriptionTextView.setText(description);
+        }
+
         holder.descriptionTextView.setText(achievement.getDescription());
         holder.dateTextView.setText(achievement.getDate());
         holder.achievementID = achievement.getId();

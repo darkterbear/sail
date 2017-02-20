@@ -8,10 +8,6 @@ import android.view.ViewGroup;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
 
     private List<Goal> goals;
@@ -35,8 +31,24 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
     @Override
     public void onBindViewHolder(final GoalsViewHolder holder, int position) {
         final Goal goal = goals.get(position);
-        holder.titleTextView.setText(goal.getTitle());
-        holder.descriptionTextView.setText(goal.getDescription());
+
+        String title = goal.getTitle();
+        String description = goal.getDescription();
+
+        if (title.length() > 40) {
+            title = title.substring(0, 37) + "...";
+        }
+        if (description.length() > 90) {
+            description = description.substring(0, 87) + "...";
+        }
+
+        holder.titleTextView.setText(title);
+
+        if (description.equals("") || description.isEmpty()) {
+            holder.descriptionTextView.setVisibility(View.GONE);
+        } else {
+            holder.descriptionTextView.setText(description);
+        }
         holder.dateTextView.setText(goal.getDate());
         holder.doneImageButton.setOnClickListener(new View.OnClickListener() {
             @Override

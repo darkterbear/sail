@@ -7,10 +7,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class GoalsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     protected TextView titleTextView;
     protected TextView descriptionTextView;
@@ -27,9 +23,7 @@ public class GoalsViewHolder extends RecyclerView.ViewHolder implements View.OnC
         starImageButton = (ImageButton) itemView.findViewById(R.id.goalStarButton);
         doneImageButton = (ImageButton) itemView.findViewById(R.id.goalDoneButton);
 
-
         itemView.setOnClickListener(this);
-
     }
 
     @Override
@@ -38,6 +32,4 @@ public class GoalsViewHolder extends RecyclerView.ViewHolder implements View.OnC
         editGoal.putExtra("goal_id", goalID);
         ((Activity) view.getContext()).startActivityForResult(editGoal, 1337);
     }
-
-
 }

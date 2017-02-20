@@ -11,19 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="io.phoenyx.sail.AddPromiseActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/promisePersonEditText"
-        android:hint="Person"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:backgroundTint="@color/gray_highlight_color"
-        android:inputType="textCapSentences|textAutoCorrect"
-        android:layout_below="@+id/promiseTitleEditText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -86,5 +73,17 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/promisePersonEditText"
+        android:hint="Person (Optional)"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/gray_highlight_color"
+        android:inputType="textCapSentences|textAutoCorrect"
+        android:layout_below="@+id/promiseTitleEditText"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

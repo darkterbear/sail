@@ -7,10 +7,6 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class TimelineEventsAdapter extends RecyclerView.Adapter<TimelineEventsViewHolder> {
 
     private List<TimelineEvent> timelineEvents;
@@ -30,8 +26,25 @@ public class TimelineEventsAdapter extends RecyclerView.Adapter<TimelineEventsVi
     @Override
     public void onBindViewHolder(final TimelineEventsViewHolder holder, int position) {
         final TimelineEvent timelineEvent = timelineEvents.get(position);
-        holder.titleTextView.setText(timelineEvent.getTitle());
-        holder.descriptionTextView.setText(timelineEvent.getDescription());
+
+        String title = timelineEvent.getTitle();
+        String description = timelineEvent.getDescription();
+
+        if (title.length() > 40) {
+            title = title.substring(0, 37) + "...";
+        }
+        if (description.length() > 90) {
+            description = description.substring(0, 87) + "...";
+        }
+
+        holder.titleTextView.setText(title);
+
+        if (description.equals("") || description.isEmpty()) {
+            holder.descriptionTextView.setVisibility(View.GONE);
+        } else {
+            holder.descriptionTextView.setText(description);
+        }
+
         holder.dateTextView.setText(timelineEvent.getDate());
         holder.timelineEventID = timelineEvent.getId();
     }

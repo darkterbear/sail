@@ -8,10 +8,6 @@ import android.view.ViewGroup;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
 
     private List<Promise> promises;
@@ -31,10 +27,36 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
     @Override
     public void onBindViewHolder(final PromisesViewHolder holder, int position) {
         final Promise promise = promises.get(position);
-        holder.titleTextView.setText(promise.getTitle());
-        holder.descriptionTextView.setText(promise.getDescription());
+
+        String title = promise.getTitle();
+        String description = promise.getDescription();
+        String name = promise.getPerson();
+
+        if (title.length() > 40) {
+            title = title.substring(0, 37) + "...";
+        }
+        if (description.length() > 90) {
+            description = description.substring(0, 87) + "...";
+        }
+        if (name.length() > 20) {
+            name = shortenName(name);
+        }
+
+        holder.titleTextView.setText(title);
+
+        if (description.equals("") || description.isEmpty()) {
+            holder.descriptionTextView.setVisibility(View.GONE);
+        } else {
+            holder.descriptionTextView.setText(description);
+        }
+
+        if (name.equals("") || name.isEmpty()) {
+            holder.personTextView.setVisibility(View.GONE);
+        } else {
+            holder.personTextView.setText(name);
+        }
+
         holder.dateTextView.setText(promise.getDate());
-        holder.personTextView.setText(promise.getPerson());
         holder.promiseID = promise.getId();
         holder.doneImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,5 +99,20 @@ public class PromisesAdapter extends RecyclerView.Adapter<PromisesViewHolder> {
     @Override
     public int getItemCount() {
         return promises.size();
+    }
+
+    private String shortenName(String name) {
+        if (name.contains(" ")) {
+            String[] names = name.split(" ");
+            String aggregateName = "";
+            int i = -1;
+            do {
+                i++;
+                aggregateName += names[i] + " ";
+            } while (aggregateName.length() <= 20);
+            return aggregateName.substring(0, 17) + "...";
+        } else {
+            return name.substring(0, 17) + "...";
+        }
     }
 }

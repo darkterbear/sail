@@ -37,6 +37,5 @@ public class PromisesViewHolder extends RecyclerView.ViewHolder implements View.
         Intent editPromise = new Intent(view.getContext().getApplicationContext(), EditPromiseActivity.class);
         editPromise.putExtra("promise_id", promiseID);
         ((Activity) view.getContext()).startActivityForResult(editPromise, 1337);
-
     }
 }
