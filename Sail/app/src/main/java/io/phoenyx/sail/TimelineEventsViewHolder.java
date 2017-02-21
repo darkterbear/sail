@@ -6,10 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class TimelineEventsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     protected TextView titleTextView;
     protected TextView descriptionTextView;

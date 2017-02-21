@@ -1,24 +1,28 @@
 package io.phoenyx.sail;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.List;
 
-public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
+import io.phoenyx.sail.fragments.GoalsFragment;
+
+public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
 
     private List<Goal> goals;
     private DBHandler dbHandler;
+    private GoalsFragment.OnItemTouchListener onItemTouchListener;
 
-    public interface OnClickListener {
-        void onClick();
-    }
-
-    public GoalsAdapter(List<Goal> goals) {
+    public GoalsAdapter(List<Goal> goals, GoalsFragment.OnItemTouchListener onItemTouchListener) {
         this.goals = goals;
+        this.onItemTouchListener = onItemTouchListener;
     }
 
     @Override
@@ -29,7 +33,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final GoalsViewHolder holder, int position) {
+    public void onBindViewHolder(final GoalsViewHolder holder, final int position) {
         final Goal goal = goals.get(position);
 
         String title = goal.getTitle();
@@ -73,6 +77,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
                     holder.starImageButton.setBackgroundResource(R.drawable.star);
                     goal.setStarred(true);
                 }
+                onItemTouchListener.onStarClick(view, holder.getAdapterPosition(), goal.isStarred());
                 dbHandler.updateGoal(goal);
 
             }
@@ -85,12 +90,40 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsViewHolder> {
                 Achievement achievement = new Achievement(goal.getTitle(), goal.getDescription(), date, goal.isStarred());
                 dbHandler.createAchievement(achievement);
                 dbHandler.deleteGoal(goal.getId());
-
+                onItemTouchListener.onCheckClick(view, position);
             }
         });
 
 
     }
+
+    public class GoalsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private TextView titleTextView;
+        private TextView descriptionTextView;
+        private TextView dateTextView;
+        private ImageButton starImageButton;
+        private ImageButton doneImageButton;
+        int goalID;
+
+        public GoalsViewHolder(View itemView) {
+            super(itemView);
+            titleTextView = (TextView) itemView.findViewById(R.id.goalTitleTextView);
+            descriptionTextView = (TextView) itemView.findViewById(R.id.goalDescriptionTextView);
+            dateTextView = (TextView) itemView.findViewById(R.id.goalDateTextView);
+            starImageButton = (ImageButton) itemView.findViewById(R.id.goalStarButton);
+            doneImageButton = (ImageButton) itemView.findViewById(R.id.goalDoneButton);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent editGoal = new Intent(view.getContext().getApplicationContext(), EditGoalActivity.class);
+            editGoal.putExtra("goal_id", goalID);
+            ((Activity) view.getContext()).startActivityForResult(editGoal, 1337);
+        }
+    }
+
 
     @Override
     public int getItemCount() {

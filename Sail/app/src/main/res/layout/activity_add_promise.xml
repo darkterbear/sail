@@ -59,7 +59,23 @@
         android:gravity="top"
         android:paddingLeft="8dp"
         android:backgroundTint="@android:color/transparent"
-        android:textCursorDrawable="@drawable/color_cursor" />
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:maxLength="300" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/promisePersonEditText"
+        android:hint="Person (Optional)"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/gray_highlight_color"
+        android:inputType="textCapSentences|textAutoCorrect"
+        android:layout_below="@+id/promiseTitleEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:maxLength="30"
+        android:maxLines="1" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -72,18 +88,8 @@
         android:backgroundTint="@color/gray_highlight_color"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/promisePersonEditText"
-        android:hint="Person (Optional)"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:backgroundTint="@color/gray_highlight_color"
-        android:inputType="textCapSentences|textAutoCorrect"
-        android:layout_below="@+id/promiseTitleEditText"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true"
+        android:maxLines="1"
+        android:maxLength="60" />
 
 </RelativeLayout>

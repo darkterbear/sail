@@ -10,21 +10,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import io.phoenyx.sail.AddPromiseActivity;
 import io.phoenyx.sail.DBHandler;
 import io.phoenyx.sail.PromisesAdapter;
 import io.phoenyx.sail.R;
 
-/**
- * Created by terrance on 2/18/17.
- */
-
 public class PromisesFragment extends Fragment {
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     DBHandler dbHandler;
     FloatingActionButton addPromiseFAB;
+    TextView noPromisesTextView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,13 +37,17 @@ public class PromisesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_promises, container, false);
 
-    addPromiseFAB = (FloatingActionButton) view.findViewById(R.id.addPromiseFAB);
-
+        addPromiseFAB = (FloatingActionButton) view.findViewById(R.id.addPromiseFAB);
+        noPromisesTextView = (TextView) view.findViewById(R.id.noPromisesTextView);
         recyclerView = (RecyclerView) view.findViewById(R.id.promisesRecyclerView);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new PromisesAdapter(dbHandler.getAllPromises()));
+
+        if (recyclerView.getAdapter().getItemCount() > 0) {
+            noPromisesTextView.setVisibility(View.GONE);
+        }
 
         addPromiseFAB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +66,11 @@ public class PromisesFragment extends Fragment {
 
         if (resultCode == 1337 || requestCode == 1337) {
             recyclerView.setAdapter(new PromisesAdapter(dbHandler.getAllPromises()));
+            if (recyclerView.getAdapter().getItemCount() > 0) {
+                noPromisesTextView.setVisibility(View.GONE);
+            } else {
+                noPromisesTextView.setVisibility(View.VISIBLE);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
 

@@ -6,6 +6,16 @@
     android:id="@+id/timelineLayout"
     android:padding="16dp">
 
+    <TextView
+        android:text='"Life is a chain of events"'
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noTimelineEventsTextView"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/timelineEventsRecyclerView"
         android:layout_width="match_parent"

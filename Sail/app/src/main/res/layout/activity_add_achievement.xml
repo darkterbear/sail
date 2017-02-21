@@ -21,7 +21,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:textCursorDrawable="@drawable/color_cursor"
-        android:backgroundTint="@color/gray_highlight_color" />
+        android:backgroundTint="@color/gray_highlight_color"
+        android:maxLines="1"
+        android:maxLength="60" />
 
     <TextView
         android:text="Mar. 20 2017"
@@ -50,6 +52,7 @@
         android:gravity="top"
         android:paddingLeft="8dp"
         android:backgroundTint="@android:color/transparent"
-        android:textCursorDrawable="@drawable/color_cursor" />
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:maxLength="300" />
 
 </RelativeLayout>
