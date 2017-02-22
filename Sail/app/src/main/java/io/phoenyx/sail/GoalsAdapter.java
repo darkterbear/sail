@@ -90,7 +90,9 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
                 Achievement achievement = new Achievement(goal.getTitle(), goal.getDescription(), date, goal.isStarred());
                 dbHandler.createAchievement(achievement);
                 dbHandler.deleteGoal(goal.getId());
-                onItemTouchListener.onCheckClick(view, position);
+                goals.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, getItemCount() - position);
             }
         });
 

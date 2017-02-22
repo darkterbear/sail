@@ -28,7 +28,6 @@ public class GoalsFragment extends Fragment {
 
     public interface OnItemTouchListener {
         public void onStarClick(View view, int position, boolean isStarred);
-        public void onCheckClick(View view, int postion);
     }
 
     @Override
@@ -43,15 +42,8 @@ public class GoalsFragment extends Fragment {
             public void onStarClick(View view, int position, boolean isStarred) {
                 //TODO handle star click
             }
-
-            @Override
-            public void onCheckClick(View view, int postion) {
-                refreshAdapter();
-            }
         };
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
