@@ -54,7 +54,7 @@
             android:id="@+id/goalButtonsGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="end"
             android:paddingRight="16dp"
             android:backgroundTint="@color/colorAccent"
@@ -63,21 +63,22 @@
             <ImageButton
                 android:id="@+id/goalDoneButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:src="@drawable/check"
                 android:background="@android:color/transparent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginRight="8dp" />
 
             <ImageButton
                 android:id="@+id/goalStarButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:src="@drawable/star_outline"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp" />
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginBottom="4dp" />
         </LinearLayout>
 
     </LinearLayout>
