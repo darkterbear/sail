@@ -59,6 +59,7 @@ public class EditPromiseActivity extends AppCompatActivity {
         promiseTitleEditText.setText(promise.getTitle());
         promiseDescriptionEditText.setText(promise.getDescription());
         promiseDateTextView.setText(promise.getDate());
+        promisePersonEditText.setText(promise.getPerson());
 
         if (promise.getDate().equals("Long term")) {
             promiseLongTermCheckBox.setChecked(true);

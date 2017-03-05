@@ -70,7 +70,7 @@
         android:hint="Person (Optional)"
         android:textCursorDrawable="@drawable/color_cursor"
         android:backgroundTint="@color/gray_highlight_color"
-        android:inputType="textCapSentences|textAutoCorrect"
+        android:inputType="textCapWords|textCapSentences|textAutoCorrect"
         android:layout_below="@+id/promiseTitleEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
