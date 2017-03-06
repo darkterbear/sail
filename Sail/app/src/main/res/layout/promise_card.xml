@@ -97,22 +97,25 @@
 
             <ImageButton
                 android:id="@+id/promiseDoneButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/check"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
                 android:background="@android:color/transparent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp" />
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/check" />
 
             <ImageButton
                 android:id="@+id/promiseStarButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/star_outline"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp" />
+                android:src="@drawable/star_outline" />
         </LinearLayout>
 
     </LinearLayout>
